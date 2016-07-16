@@ -1,3 +1,1 @@
-# Auth Tokens
-
-client*
+.client.rb
