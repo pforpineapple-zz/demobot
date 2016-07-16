@@ -3,8 +3,10 @@ require 'json'
 require 'eventmachine'
 require 'faye/websocket'
 
+require './.client.rb'
+
 rc = HTTP.post("https://slack.com/api/rtm.start", params: {
-  token: TOKEN,
+  token: ACCESS_TOKEN,
 })
 
 rc = JSON.parse(rc.body)
