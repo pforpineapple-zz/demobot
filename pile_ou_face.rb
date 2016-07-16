@@ -4,7 +4,7 @@ require 'eventmachine'
 require 'faye/websocket'
 
 rc = HTTP.post("https://slack.com/api/rtm.start", params: {
-  token: 'xoxb-60380722211-TsDtNl9VaplKtOPUmwfo6ZKS',
+  token: TOKEN,
 })
 
 rc = JSON.parse(rc.body)
@@ -23,10 +23,10 @@ EM.run do
 		data = JSON.parse(event.data)
 		if data['text'] == 'hi'
 			ws.send({
-				type: 'message',
-				text: "hi <@#{data['user']}>",
-				channel: data['channel'],
-				}.to_json)
+			type: 'message',
+			text: "hi <@#{data['user']}>",
+			channel: data['channel'],
+			}.to_json)
 		end
 	end
 
